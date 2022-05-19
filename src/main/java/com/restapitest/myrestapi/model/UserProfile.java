@@ -1,24 +1,14 @@
 package com.restapitest.myrestapi.model;
 
 public class UserProfile {
-  private String id;
   private String name;
   private String phone;
   private String address;
 
-  public UserProfile(String id, String name, String phone, String address) {
-    this.id = id;
+  public UserProfile(String name, String phone, String address) {
     this.name = name;
     this.phone = phone;
     this.address = address;
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public String getName() {

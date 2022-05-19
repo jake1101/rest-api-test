@@ -15,19 +15,18 @@ import org.apache.ibatis.annotations.Update;
 public interface UserProfileMapper {
 
   @Select("SELECT * FROM UserProfile WHERE id=#{id}")
-  UserProfile getUserProfile(@Param("id") String id);
+  UserProfile getUserProfile(@Param("id") Integer id);
 
   @Select("SELECT * FROM UserProfile")
   List<UserProfile> getUserProfileList();
 
-  @Insert("INSERT INTO UserProfile VALUES(#{id}, #{name}, #{phone}, #{address})")
-  int insertUserProfile(@Param("id") String id, @Param("name") String name, @Param("phone") String phone,
+  @Insert("INSERT INTO UserProfile VALUES(NULL, #{name}, #{phone}, #{address})")
+  int insertUserProfile(@Param("name") String name, @Param("phone") String phone,
       @Param("address") String address);
 
-  @Update("UPDATE UserProfile SET name=#{name}, phone=#{phone}, address=#{address} where id=#{id}")
-  int updateUserProfile(@Param("id") String id, @Param("name") String name, @Param("phone") String phone,
-      @Param("address") String address);
+  @Update("UPDATE UserProfile SET #{key}=#{value} WHERE id=#{id}")
+  int updateUserProfile(@Param("id") Integer id, @Param("key") String key, @Param("value") String value);
 
   @Delete("DELETE FROM UserProfile WHERE id=#{id}")
-  int deleteUserProfile(@Param("id") String id);
+  int deleteUserProfile(@Param("id") Integer id);
 }
