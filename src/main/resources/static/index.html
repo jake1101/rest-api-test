@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RESTfull API</title>
+    <style>
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding-top: 100px;
+      }
+
+      .wrap {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrap">
+        <div>HTTP GET - /user</div>
+        <div>
+          <form action="/user" method="get">
+            <button type="submit">send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelector('form').addEventListener('submit', (e) => {
+        const form = e.target;
+
+        const resource = form.action.split(location.origin)[1];
+        const init = ((method) => {
+          const result = { method };
+          if (method !== 'get') {
+            const body = new FormData(form);
+            Object.assign(result, { body });
+          }
+
+          return result;
+        })(form.method);
+
+        fetch(resource, init).then((res) => {
+          alert(res);
+        });
+
+        e.preventDefault();
+      });
+      // const makeRequest = () => {
+      //   const http = new XMLHttpRequest();
+
+      //   http.onreadystatechange = () => {
+      //     if (http.readyState === XMLHttpRequest.DONE) {
+      //       if (http.status === 200) {
+      //         alert(http.responseText);
+      //       }
+      //     }
+      //   };
+
+      //   http.open('GET', '/user/1');
+      //   http.send();
+      // };
+      // const btn = document.querySelector('button');
+      // console.log(btn);
+      // const onClick = () => {
+      //   console.log('click');
+      //   makeRequest();
+      // };
+      // btn.addEventListener('click', onClick);
+    </script>
+  </body>
+</html>
