@@ -15,7 +15,7 @@
       .wrap {
         display: flex;
         justify-content: space-between;
-        gap: 10px;
+        gap: 20px;
       }
 
       table {
@@ -29,6 +29,24 @@
 
       td {
         padding: 20px;
+        height: 145px;
+      }
+
+      .header-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .input-wrap {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5px;
+      }
+
+      .button-wrap {
+        text-align: right;
+        padding-top: 5px;
       }
     </style>
   </head>
@@ -48,13 +66,13 @@
               <tr>
                 <th>HTTP GET - /users</th>
                 <td>
-                  <div>
+                  <div class="header-wrap">
                     <div>
                       <label>Authorization</label>
                       :
                       <input type="text" value="Basic cm9vdDpyb290" disabled />
                     </div>
-                    <div style="padding-top: 5px">
+                    <div>
                       <label>Content-Type</label>
                       :
                       <input type="text" value="application/json" disabled />
@@ -62,22 +80,17 @@
                   </div>
                 </td>
                 <td>
-                  <textarea
-                    cols="30"
-                    rows="5"
-                    style="display: block; resize: none"
-                    disabled
-                  ></textarea>
-                  <div
-                    style="
-                      display: flex;
-                      justify-content: space-between;
-                      gap: 5px;
-                      padding-top: 5px;
-                    "
-                  >
+                  <div class="button-wrap">
                     <div style="width: 80%"></div>
-                    <button data-method="GET" data-url="/users">send</button>
+                    <a
+                      class="rest"
+                      data-method="GET"
+                      data-url="/users"
+                      data-link="<http://localhost:8080/url>"
+                      href="/users"
+                    >
+                      send
+                    </a>
                   </div>
                 </td>
               </tr>
@@ -86,13 +99,13 @@
               <tr>
                 <th>HTTP POST - /user</th>
                 <td>
-                  <div>
+                  <div class="header-wrap">
                     <div>
                       <label>Authorization</label>
                       :
                       <input type="text" value="Basic cm9vdDpyb290" disabled />
                     </div>
-                    <div style="padding-top: 5px">
+                    <div>
                       <label>Content-Type</label>
                       :
                       <input type="text" value="application/json" disabled />
@@ -100,21 +113,29 @@
                   </div>
                 </td>
                 <td>
-                  <textarea
-                    cols="30"
-                    rows="5"
-                    style="display: block; resize: none"
-                  ></textarea>
-                  <div
-                    style="
-                      display: flex;
-                      justify-content: space-between;
-                      gap: 5px;
-                      padding-top: 5px;
-                    "
-                  >
-                    <div style="width: 80%">name, phone, address</div>
-                    <button data-method="POST" data-url="/user">send</button>
+                  <div class="input-wrap">
+                    <label for="">name</label>
+                    <input type="text" />
+                  </div>
+                  <div class="input-wrap">
+                    <label for="">phone</label>
+                    <input type="text" />
+                  </div>
+                  <div class="input-wrap">
+                    <label for="">address</label>
+                    <input type="text" />
+                  </div>
+
+                  <div class="button-wrap">
+                    <a
+                      class="rest"
+                      data-method="POST"
+                      data-url="/user"
+                      data-link="<http://localhost:8080/url>"
+                      href="/user"
+                    >
+                      send
+                    </a>
                   </div>
                 </td>
               </tr>
@@ -123,13 +144,13 @@
               <tr>
                 <th>HTTP PUT - /user/{id}</th>
                 <td>
-                  <div>
+                  <div class="header-wrap">
                     <div>
                       <label>Authorization</label>
                       :
                       <input type="text" value="Basic cm9vdDpyb290" disabled />
                     </div>
-                    <div style="padding-top: 5px">
+                    <div>
                       <label>Content-Type</label>
                       :
                       <input type="text" value="application/json" disabled />
@@ -137,21 +158,32 @@
                   </div>
                 </td>
                 <td>
-                  <textarea
-                    cols="30"
-                    rows="5"
-                    style="display: block; resize: none"
-                  ></textarea>
-                  <div
-                    style="
-                      display: flex;
-                      justify-content: space-between;
-                      gap: 5px;
-                      padding-top: 5px;
-                    "
-                  >
-                    <div style="width: 80%">id, key, value</div>
-                    <button data-method="PUT" data-url="/user/id">send</button>
+                  <div class="input-wrap">
+                    <label for="">id</label>
+                    <input type="number" />
+                  </div>
+                  <div class="input-wrap">
+                    <label for="">name</label>
+                    <input type="text" />
+                  </div>
+                  <div class="input-wrap">
+                    <label for="">phone</label>
+                    <input type="text" />
+                  </div>
+                  <div class="input-wrap">
+                    <label for="">address</label>
+                    <input type="text" />
+                  </div>
+                  <div class="button-wrap">
+                    <a
+                      class="rest"
+                      data-method="PUT"
+                      data-url="/user/id"
+                      data-link="<http://localhost:8080/url>"
+                      href="/user/id"
+                    >
+                      send
+                    </a>
                   </div>
                 </td>
               </tr>
@@ -160,13 +192,13 @@
               <tr>
                 <th>HTTP DELETE - /user/{id}</th>
                 <td>
-                  <div>
+                  <div class="header-wrap">
                     <div>
                       <label>Authorization</label>
                       :
                       <input type="text" value="Basic cm9vdDpyb290" disabled />
                     </div>
-                    <div style="padding-top: 5px">
+                    <div>
                       <label>Content-Type</label>
                       :
                       <input type="text" value="application/json" disabled />
@@ -174,23 +206,20 @@
                   </div>
                 </td>
                 <td>
-                  <textarea
-                    cols="30"
-                    rows="5"
-                    style="display: block; resize: none"
-                  ></textarea>
-                  <div
-                    style="
-                      display: flex;
-                      justify-content: space-between;
-                      gap: 5px;
-                      padding-top: 5px;
-                    "
-                  >
-                    <div style="width: 80%">id</div>
-                    <button data-method="DELETE" data-url="/user/id">
+                  <div class="input-wrap">
+                    <label for="">id</label>
+                    <input type="number" />
+                  </div>
+                  <div class="button-wrap">
+                    <a
+                      class="rest"
+                      data-method="DELETE"
+                      data-url="/user/id"
+                      data-link="<http://localhost:8080/url>"
+                      href="/user/id"
+                    >
                       send
-                    </button>
+                    </a>
                   </div>
                 </td>
               </tr>
@@ -199,7 +228,17 @@
           </table>
         </div>
         <div>
-          <div>Representations(표현)</div>
+          <div
+            style="
+              height: 63px;
+              border: 3px solid black;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            Representations(표현)
+          </div>
 
           <textarea
             name="representations"
@@ -207,11 +246,29 @@
             style="
               display: block;
               padding-top: 5px;
-              min-width: 400px;
-              height: 600px;
+              min-width: 500px;
+              height: 748px;
               resize: none;
             "
           ></textarea>
+        </div>
+      </div>
+      <div class="wrap" style="padding-top: 20px">
+        <div>
+          <div style="display: flex; justify-content: space-between; gap: 10px">
+            <label for="hateoasName">name</label>
+            <input id="hateoasName" type="text" style="text-align: right" />
+          </div>
+
+          <div style="text-align: right">
+            <a
+              id="hateoasA"
+              href="/api/user"
+              data-method="POST"
+              data-url="/api/user"
+              >HATEOAS
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -230,50 +287,89 @@
       const pretty = (json) => JSON.stringify(json, null, 2);
 
       const onClick = (e) => {
+        e.preventDefault();
         let parent = e.target;
         while (parent.nodeName != 'TD') parent = parent.parentElement;
-        const textarea = parent.querySelector('textarea');
-        const representation = document.getElementById('representations');
+        const { method, url: resource, link: linkResource } = e.target.dataset;
+        const body = {};
+
+        const inputWrap = parent.querySelectorAll('.input-wrap');
+        if (inputWrap.length) {
+          inputWrap.forEach((el) => {
+            const key = el.querySelector('label').textContent;
+            const value = el.querySelector('input').value;
+            if (value) body[key] = value;
+            if (body['id']) body['id'] = Number(body['id']);
+          });
+        }
+
+        const url = resource.includes('id')
+          ? resource.replace('id', body.id)
+          : resource;
+        const link = linkResource.replace('/url', url) + '; rel="user"';
 
         const http = new XMLHttpRequest();
         http.onreadystatechange = () => {
           if (http.readyState === XMLHttpRequest.DONE) {
-            if (http.status === 200) {
-              const map = {};
-              const responseHeadersString = http.getAllResponseHeaders();
-              const responseHeadersList = responseHeadersString.split('\r');
-              responseHeadersList.forEach((h) => {
-                const key = h.split(':')[0].replace('\n', '');
-                const value = h.split(':').splice(1).join('').trim();
-                if (key) map[key] = value;
-              });
+            const map = {};
+            // const hateoas = {};
+            // const responseHeadersString = http.getAllResponseHeaders();
+            // const responseHeadersList = responseHeadersString.split('\r');
+            // responseHeadersList.forEach((h) => {
+            //   const key = h.split(':')[0].replace('\n', '');
+            //   const value = h.split(':').splice(1).join('').trim();
+            //   if (key === 'Content-Type' || key === 'Link') map[key] = value;
+            // });
+            map['status-code'] = 'HTTP ' + http.status + ' OK';
+            map['Content-Type'] = 'application/json';
+            map['method'] = method;
+            map['Link'] = link;
+            map['body'] = body;
 
-              const json = { response: JSON.parse(http.responseText) };
-              json.headers = map;
-
-              const res = pretty(json);
-              representation.value = res;
+            if (http.status !== 200) {
+              alert('error');
+              return;
             }
+
+            const json = JSON.parse(http.responseText);
+            json['self-descriptive-messages'] = map;
+
+            const representation = document.getElementById('representations');
+            const res = pretty(json);
+            representation.value = res;
           }
         };
 
-        const { method, url: resource } = e.target.dataset;
-        const url = resource;
-        const body = {};
-        if (textarea.value) {
-          Object.assign(body, JSON.parse(textarea.value.replaceAll('\n', '')));
-        }
-
-        http.open(
-          method,
-          url.includes('id') ? url.replace('id', body.id) : url
-        );
+        http.open(method, url);
         http.customSetRequestHeader(http, headers);
         http.send(JSON.stringify(body));
       };
 
-      document.querySelectorAll('button').forEach((btn) => {
+      document.querySelectorAll('.rest').forEach((btn) => {
         btn.addEventListener('click', onClick);
+      });
+
+      document.getElementById('hateoasA').addEventListener('click', (e) => {
+        e.preventDefault();
+        const http = new XMLHttpRequest();
+        http.onreadystatechange = () => {
+          if (http.readyState === XMLHttpRequest.DONE) {
+            const json = JSON.parse(http.responseText);
+
+            const representation = document.getElementById('representations');
+            const res = pretty(json);
+            representation.value = res;
+          }
+        };
+
+        http.open('POST', 'api/user');
+        http.setRequestHeader('Content-Type', 'application/json');
+
+        http.send(
+          JSON.stringify({
+            name: document.getElementById('hateoasName').value,
+          })
+        );
       });
     </script>
 
